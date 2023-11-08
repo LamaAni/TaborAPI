@@ -18,8 +18,6 @@ def start_server(config: TaborConfig = None):
         app,
         port=config.port,
         host=config.host,
-        reload=config.reload,
-        reload_dirs=[config.reload_dir],
     )
 
 
