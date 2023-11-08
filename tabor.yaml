@@ -1,0 +1,3 @@
+# Configuration file for tabor. 
+# This file will be merged with the configuration file in .local/tabor.yaml
+port: 5026
