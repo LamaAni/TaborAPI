@@ -26,6 +26,14 @@ class TaborConfig(CascadingConfig):
     def reload_dir(self) -> str:
         return self.get("reload_dir", REPO_PATH)
 
+    @property
+    def visa_port(self) -> int:
+        return self.get("visa_port", 5025)
+
+    @property
+    def visa_host_address(self) -> object:
+        return self.get("visa_host_address", "localhost")
+
 
 def load_config(*src: List[str], environment: str = ENVIRONMENT):
     """Loads configuration from src paths,
@@ -39,8 +47,9 @@ def load_config(*src: List[str], environment: str = ENVIRONMENT):
     for s in src:
         if not os.path.exists(s):
             continue
-        loaded.append(TaborConfig.load(s))
+        loaded.append(TaborConfig.load(s, environment=environment))
+
     if len(loaded) > 0:
-        merge_cascading_dicts(config, *loaded)
+        config = merge_cascading_dicts(config, *loaded)
 
     return config

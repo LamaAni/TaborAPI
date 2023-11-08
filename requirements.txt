@@ -2,4 +2,5 @@ requests
 websockets
 fastapi
 bole
+numpy
 uvicorn[standard]
