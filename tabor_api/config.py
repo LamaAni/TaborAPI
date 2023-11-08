@@ -3,7 +3,7 @@ from typing import List
 from bole import CascadingConfig
 from bole.config import merge_cascading_dicts
 
-from tabor_api.consts import TABOR_CONFIG_SEARCH_PATHS, ENVIRONMENT
+from tabor_api.consts import REPO_PATH, TABOR_CONFIG_SEARCH_PATHS, ENVIRONMENT
 
 
 class TaborConfig(CascadingConfig):
@@ -17,6 +17,14 @@ class TaborConfig(CascadingConfig):
     @property
     def host(self) -> str:
         return self.get("host", "0.0.0.0")
+
+    @property
+    def reload(self) -> bool:
+        return self.get("reload", True)
+
+    @property
+    def reload_dir(self) -> str:
+        return self.get("reload_dir", REPO_PATH)
 
 
 def load_config(*src: List[str], environment: str = ENVIRONMENT):
