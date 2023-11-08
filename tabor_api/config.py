@@ -14,6 +14,10 @@ class TaborConfig(CascadingConfig):
     def port(self) -> int:
         return self.get("port", 5026)
 
+    @property
+    def host(self) -> str:
+        return self.get("host", "localhost")
+
 
 def load_config(*src: List[str], environment: str = ENVIRONMENT):
     """Loads configuration from src paths,

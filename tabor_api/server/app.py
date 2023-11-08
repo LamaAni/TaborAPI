@@ -14,7 +14,11 @@ async def root():
 
 def start_server(config: TaborConfig = None):
     config = config or load_config()
-    uvicorn.run(app, port=config.port)
+    uvicorn.run(
+        app,
+        port=config.port,
+        host=config.host,
+    )
 
 
 if __name__ == "__main__":
