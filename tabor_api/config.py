@@ -16,7 +16,7 @@ class TaborConfig(CascadingConfig):
 
     @property
     def host(self) -> str:
-        return self.get("host", "localhost")
+        return self.get("host", "0.0.0.0")
 
 
 def load_config(*src: List[str], environment: str = ENVIRONMENT):
