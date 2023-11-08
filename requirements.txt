@@ -3,4 +3,5 @@ websockets
 fastapi
 bole
 numpy
+pyvisa
 uvicorn[standard]
