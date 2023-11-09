@@ -1,6 +1,8 @@
 # TaborAPI
 API Service for tabor devices
 
+## VERY early ALPHA version
+
 # Licence
 
 Copyright ©
