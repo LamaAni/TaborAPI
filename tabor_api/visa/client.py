@@ -32,11 +32,17 @@ class TaborClient:
 
     GLOBAL_CLIENT: "TaborClient" = None
 
-    @property
     @classmethod
+    @property
     def client(cls):
         """The global client"""
         if cls.GLOBAL_CLIENT is None:
             cls.GLOBAL_CLIENT = TaborClient()
             cls.GLOBAL_CLIENT.connect()
         return cls.GLOBAL_CLIENT
+
+
+if __name__ == "__main__":
+    client = TaborClient.client
+    print(client.query("IDN?"))
+    pass
